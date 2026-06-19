@@ -42,11 +42,13 @@ These results should be interpreted as strategy-development research, not as a g
 - The active Pine Script is kept at the repository root for easy review.
 - The public TradingView link is included for direct platform access.
 - Earlier strategy variants are separated into archive folders to keep the featured implementation easy to find.
+- The script was formatted for readability without changing trading logic.
 
 ## Resources
 
 - [Public TradingView script](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/)
-- [Active TREND-CATCHER Pine Script](../trend-catcher_15m-v5)
+- [Active TREND-CATCHER Pine Script](../trend-catcher_15m-v5.pine)
+- [TradingView strategy hub](README.md)
 
 ## Assumptions and Limitations
 
