@@ -1,35 +1,47 @@
-# Trend-Catcher [15m]
+# Systematic Trading & Market Research Portfolio
 
-## Overview
-Trend-Catcher [15m] is an advanced trading algorithm designed for dynamic market conditions. It uses trend analysis to execute both long and short trades based on the Radius Trend indicator and the Stochastic Oscillator.
+A portfolio of market research papers, options strategy analysis, Pine Script trading strategies, and quantitative backtesting work.
 
-## Indicators Used
-- **Radius Trend**: Determines market trend direction and adjusts trading bands dynamically.
-- **Stochastic Oscillator**: Identifies overbought and oversold conditions for precise entry and exit points.
+Resume project link:
 
-## Execution Logic
-- **Entry Conditions**:
-  - Long Entry: Triggered when the Stochastic Oscillator indicates oversold conditions and the Radius Trend suggests a potential upward reversal.
-  - Re-Entry: If the trend remains bullish after a stop-loss trigger, re-entry occurs based on recalibrated support levels.
+**Systematic Trading & Market Research Portfolio** | `github.com/harsh-choksi/systematic-trading-market-research`
 
-- **Exit Conditions**:
-  - Profit Target: Trades close at a pre-defined profit percentage.
-  - Stop Loss: Stops are adjusted based on dynamic support and resistance levels.
+## Market Research Papers
 
-- **Trade Management**:
-  - Adjusts trade size, stop loss, and take profit dynamically based on market volatility.
-  - Implements Sharpe Ratio tracking for performance evaluation.
+| Date | Paper | Topic | Methods |
+|---|---|---|---|
+| Jun 2026 | [Sentiment-Adjusted Covered-Call Assignment Simulation](research-papers/covered-call-assignment-simulation.pdf) | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, and assignment probability analysis |
 
-## Features
-- **Customizable Parameters**: Adjust trend sensitivity, take profit, and stop-loss levels.
-- **Visual Indicators**: Clear chart visuals for trend shifts and market entries.
-- **Automated Trading Logic**: Executes trades with risk management built-in.
+The first research paper will be added at `research-papers/covered-call-assignment-simulation.pdf` when the final PDF is ready.
 
-## Installation
-1. Open TradingView and create a new Pine Script.
-2. Copy and paste the Trend-Catcher code.
-3. Save and apply the script to your chart.
-4. Adjust settings in the input menu as needed.
+## TradingView Strategy
+
+### [TREND-CATCHER [15m]](tradingview/trend-catcher-summary.md)
+
+Pine Script strategy using trend-following logic, stochastic oscillator signals, dynamic thresholds, and rule-based trade management.
+
+Backtested across 50+ trades with Sharpe > 1.2, win rate > 85%, and ~35% annualized return under defined strategy assumptions.
+
+- Summary: [View strategy summary](tradingview/trend-catcher-summary.md)
+- TradingView: [View public script](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/)
+- Source: [Active TREND-CATCHER Pine Script](trend-catcher_15m-v5%20%5BActive%5D)
+
+## Repository Structure
+
+```text
+systematic-trading-market-research/
+  README.md
+  research-papers/
+    covered-call-assignment-simulation.pdf
+  tradingview/
+    trend-catcher-summary.md
+  images/
+    backtest-screenshot.png
+    research-preview.png
+```
+
+The PDF and image files listed above are planned asset locations and will be added when the final materials are available.
 
 ## Disclaimer
-This algorithm is for educational purposes only. Trading involves significant risk, and thorough research is recommended before making financial decisions. The creator assumes no responsibility for trading outcomes.
+
+This repository is for research and educational purposes only and is not financial advice. Trading and investing involve risk, and all results shown are based on defined assumptions that may not reflect live market performance.
