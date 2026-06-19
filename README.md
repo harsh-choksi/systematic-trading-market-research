@@ -12,9 +12,9 @@ This repository is organized as a public archive for market research papers and 
 
 | Date | Paper | Focus | Methods | Status |
 |---|---|---|---|---|
-| Jun 2026 | Sentiment-Adjusted Covered-Call Assignment Simulation | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, assignment probability analysis | PDF pending final export |
+| Jun 2026 | [Sentiment-Adjusted Covered-Call Assignment Simulation](research-papers/Sentiment-Adjusted%20Covered-Call%20Assignment%20Simulation%20%5BRR%2BPOET%2BONDS%2BUSAR%5D.docx) | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, assignment probability analysis | DOCX available; PDF pending |
 
-The first paper will be published at `research-papers/covered-call-assignment-simulation.pdf` once the final PDF export is available.
+The first paper is available as a Word document. A PDF version can be added later once export is available.
 
 ## TradingView Strategy
 
@@ -37,7 +37,7 @@ systematic-trading-market-research/
   README.md
   trend-catcher_15m-v5
   research-papers/
-    covered-call-assignment-simulation.pdf
+    Sentiment-Adjusted Covered-Call Assignment Simulation [RR+POET+ONDS+USAR].docx
   tradingview/
     trend-catcher-summary.md
   inactive/
