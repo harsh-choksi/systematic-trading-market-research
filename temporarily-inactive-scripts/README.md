@@ -1,4 +1,4 @@
-# Temporarily Inactive Strategy Archive
+# Temporarily Inactive Scripts Archive
 
 This folder contains strategy variants that are not currently featured but may be revisited, revised, or compared against future strategy iterations.
 
@@ -14,4 +14,3 @@ This folder contains strategy variants that are not currently featured but may b
 - These scripts are separated from inactive scripts because they may still inform future development.
 - They are not highlighted in the main portfolio landing page to keep the public presentation focused.
 - The featured strategy remains [TREND-CATCHER [15m]](../trend-catcher_15m-v5).
-

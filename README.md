@@ -45,8 +45,8 @@ Backtested across 50+ trades with Sharpe > 1.2, win rate > 85%, and ~35% annuali
 
 Older strategy variants are retained for transparency and development history:
 
-- [Inactive strategies](inactive/) contain retired or superseded scripts.
-- [Temporarily inactive strategies](temporarily-inactive/) contain paused variants that may still inform future development.
+- [Inactive scripts](inactive-scripts/) contain retired or superseded strategy files.
+- [Temporarily inactive scripts](temporarily-inactive-scripts/) contain paused variants that may still inform future development.
 - [Research papers](research-papers/) contains the market research archive.
 
 ## Repository Structure
@@ -60,13 +60,13 @@ systematic-trading-market-research/
     2026-06-10-covered-call-assignment-simulation.docx
   tradingview/
     trend-catcher-summary.md
-  inactive/
+  inactive-scripts/
     README.md
     only-long_dt-v4
     only-long_dt-v5
     only-long_options
     trend-catcher_options (v1)
-  temporarily-inactive/
+  temporarily-inactive-scripts/
     README.md
     trend-catcher_calls (v2)
     trend-catcher_options (v2)
