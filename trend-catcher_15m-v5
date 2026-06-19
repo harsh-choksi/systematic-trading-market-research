@@ -2,12 +2,27 @@
 // Based on https://www.tradingview.com/v/4KIHf36j/
 
 //@version=5
-var int qty = 3300
-strategy(title='TREND-CATCHER [15m]', overlay=true, initial_capital=qty, default_qty_type=strategy.cash, default_qty_value=qty, pyramiding=2, commission_type=strategy.commission.cash_per_order, commission_value=0.15)
 
-//---------------------------------------------
-// VARIABLES & INITIALIZATION
-//---------------------------------------------
+//==============================================================================
+// Strategy Configuration
+//==============================================================================
+
+var int qty = 3300
+
+strategy(
+     title='TREND-CATCHER [15m]',
+     overlay=true,
+     initial_capital=qty,
+     default_qty_type=strategy.cash,
+     default_qty_value=qty,
+     pyramiding=2,
+     commission_type=strategy.commission.cash_per_order,
+     commission_value=0.15)
+
+//==============================================================================
+// Inputs and State
+//==============================================================================
+
 tp = input.float(7.5, 'TAKE PROFIT (%)', minval=0, step=0.25)
 addProfit = input.bool(defval=false, title="Add Profit to Quantity?")
 step = input.float(0.05, "Radius Step", step=0.001)
@@ -19,9 +34,10 @@ var float multi2 = 0.0
 int n = 3
 var float band = 0.0
 
-//---------------------------------------------
-// BAND & TREND CALCULATION
-//---------------------------------------------
+//==============================================================================
+// Radius Trend Bands
+//==============================================================================
+
 distance = ta.sma(math.abs(high - low), 100) * multi
 distance1 = ta.sma(math.abs(high - low), 100) * 0.2
 
@@ -63,9 +79,10 @@ plot2 = plot(ta.sma(hl2, 20), display=display.none)
 
 fill(plot1, plot2, band, ta.sma(hl2, 20), color.new(color, 60), na)
 
-//---------------------------------------------
-// STOCHASTIC OSCILLATOR BY COWWATSON
-//---------------------------------------------
+//==============================================================================
+// Stochastic Oscillator by CowWatson
+//==============================================================================
+
 length = input.int(14, title='Length', group="STOCHASTIC OSCILLATOR")
 dLength = input.int(3, title='D Line Length', group="STOCHASTIC OSCILLATOR")
 upperTrigger = input.int(80, title='Upper Trigger Line', group="STOCHASTIC OSCILLATOR")
@@ -79,22 +96,25 @@ fastD = ta.sma(slowK, dLength)
 var float price_adjustment = close / (1.25 * math.pow(10, math.max(2, str.length(str.tostring(int(close))) - 1)))
 
 entry_long_mkt_conditions = (
-     slowK <= 12.5 - price_adjustment
+         slowK <= 12.5 - price_adjustment
      and fastD <= 12.5 - price_adjustment
-     and (ta.crossunder(slowK, fastD) 
-     or ta.crossover(slowK, fastD))
+     and (
+             ta.crossunder(slowK, fastD)
+          or ta.crossover(slowK, fastD))
      ) and barstate.isconfirmed
 
 exit_long_mkt_conditions = (
-     slowK >= 87.5 + price_adjustment
+         slowK >= 87.5 + price_adjustment
      and fastD >= 87.5 + price_adjustment
-     and (ta.crossunder(slowK, fastD) 
-     or ta.crossover(slowK, fastD))
+     and (
+             ta.crossunder(slowK, fastD)
+          or ta.crossover(slowK, fastD))
      ) and barstate.isconfirmed
 
-//---------------------------------------------
-// CALCULATION OF RISK-ADJUSTED RETURN (Sharpe Ratio)
-//---------------------------------------------
+//==============================================================================
+// Risk-Adjusted Return: Sharpe Ratio
+//==============================================================================
+
 annualRiskFreeRate = input.float(0.0333, 'Annual Risk-Free Rate', minval=0, step=0.001)
 lookbackPeriod = 5000 - 1
 
@@ -108,14 +128,21 @@ sharpeRatio = (profitRate - annualRiskFreeRate) / tenMonthVolatility
 var label sharpeLabel = na
 
 if na(sharpeLabel)
-    sharpeLabel := label.new(x=bar_index, y=low, text="Sharpe Ratio: " + str.tostring(sharpeRatio, "#.##"), style=label.style_label_up, color=color.black, textcolor=color.white)
+    sharpeLabel := label.new(
+         x=bar_index,
+         y=low,
+         text="Sharpe Ratio: " + str.tostring(sharpeRatio, "#.##"),
+         style=label.style_label_up,
+         color=color.black,
+         textcolor=color.white)
 else
     label.set_xy(sharpeLabel, bar_index, low)
     label.set_text(sharpeLabel, "Sharpe Ratio: " + str.tostring(sharpeRatio, "#.##"))
 
-//---------------------------------------------
-// STRATEGY EXECUTION
-//---------------------------------------------
+//==============================================================================
+// Strategy Execution State
+//==============================================================================
+
 float qty_entry = 7 * (qty + (addProfit ? strategy.netprofit : 0)) / 12
 var float qty_reentry = na
 
@@ -137,6 +164,10 @@ var bool exitLabelCreated = false
 var bool entryLabel = false
 var bool reentryLabel = false
 
+//==============================================================================
+// Entry Preview
+//==============================================================================
+
 if entry_long_mkt_conditions[1] and not trend[1] and strategy.opentrades[1] == 0 and bar_index[1] > 101
     a = -2.5 / 10000
     entry_value = if close[1] >= 100 and close[1] <= 500
@@ -144,15 +175,25 @@ if entry_long_mkt_conditions[1] and not trend[1] and strategy.opentrades[1] == 0
     else if close[1] > 500 and close[1] <= 1000
         math.floor(close[1] + a * math.pow(close[1] - 500, 2))
     else
-        close[1] 
+        close[1]
     if not entryLabel
-        label.new(bar_index[1], close[1] - 0.5, "Upcoming Entry | " + str.tostring(math.round(entry_value, 3 - str.length(str.tostring(int(close[1]))))), style=label.style_label_up, color=color.new(color.green, 0), textcolor=color.white)
+        label.new(
+             bar_index[1],
+             close[1] - 0.5,
+             "Upcoming Entry | " + str.tostring(math.round(entry_value, 3 - str.length(str.tostring(int(close[1]))))),
+             style=label.style_label_up,
+             color=color.new(color.green, 0),
+             textcolor=color.white)
         entryLabel := true
-    
+
 split_adjustment = if split_factor > 100
     str.length(str.tostring(int(close[1]))) - 1
 else
     3 - str.length(str.tostring(int(close[1])))
+
+//==============================================================================
+// Entry Execution
+//==============================================================================
 
 if entry_long_mkt_conditions and not trend and strategy.opentrades == 0 and bar_index > 101
     entryPrice := (high + low) / 2
@@ -161,7 +202,7 @@ if entry_long_mkt_conditions and not trend and strategy.opentrades == 0 and bar_
     limitExitPrice := math.round(entryPrice * (tp_factor + price_factor), 2)
     sl_price_adjustment := math.min(2.5, math.min(2.5 * math.exp((-250 + entryPrice) / (tp * 10)) - 0.5, 2.5 * math.exp((500 - entryPrice) / (tp * 10)) - 0.5))
     stopLossPrice := math.round(entryPrice * (sl_factor - price_factor + (entryPrice > 5 * split_factor ? tp / (250 - 5 * math.log(entryPrice)) : -tp / (500 + 10 * math.log(entryPrice)))) + sl_price_adjustment, 2)
-    
+
     strategy.entry("L1 | " + str.tostring(limitExitPrice) + " | " + str.tostring(stopLossPrice), strategy.long, math.round(qty_entry / entryPrice))
     qty_reentry := (qty + (addProfit ? strategy.netprofit : 0)) - entryPrice * math.round(qty_entry / entryPrice)
     exitStage := false
@@ -172,10 +213,20 @@ if entry_long_mkt_conditions and not trend and strategy.opentrades == 0 and bar_
 if close < stopLossPrice and strategy.opentrades == 1
     reentryStage := true
 
+//==============================================================================
+// Re-Entry Preview and Execution
+//==============================================================================
+
 if reentryStage[1] and trend[1] and not exit_long_mkt_conditions[1] and strategy.opentrades[1] == 1
     entry_value = close[1] - math.abs(open[1] - close[1]) / 1.25
     if not reentryLabel
-        label.new(bar_index[1], close[1] - 0.5, "Upcoming ReEntry | " + str.tostring(math.round(entry_value, split_adjustment)), style=label.style_label_up, color=color.new(color.blue, 0), textcolor=color.white)
+        label.new(
+             bar_index[1],
+             close[1] - 0.5,
+             "Upcoming ReEntry | " + str.tostring(math.round(entry_value, split_adjustment)),
+             style=label.style_label_up,
+             color=color.new(color.blue, 0),
+             textcolor=color.white)
         reentryLabel := true
 
 if reentryStage and trend and not exit_long_mkt_conditions and strategy.opentrades == 1
@@ -186,10 +237,20 @@ if reentryStage and trend and not exit_long_mkt_conditions and strategy.opentrad
 if exit_long_mkt_conditions and not trend
     exitStage := true
 
+//==============================================================================
+// Exit Execution
+//==============================================================================
+
 if exitStage == true and strategy.opentrades > 0
     strategy.exit("CL", limit = limitExitPrice, stop = stopLossPrice / 2)
     if exitLabelCreated == false and close[1] > limitExitPrice * 0.95
         label_text = "Limit: " + str.tostring(math.round(math.max(limitExitPrice, close[1]) + split_factor * (5 * split_factor - entryPrice) / (250 * entryPrice), split_adjustment))
-        label.new(bar_index[1], close[1] + 0.5, label_text, style=label.style_label_down, color=color.new(color.orange, 0), textcolor=color.white)
+        label.new(
+             bar_index[1],
+             close[1] + 0.5,
+             label_text,
+             style=label.style_label_down,
+             color=color.new(color.orange, 0),
+             textcolor=color.white)
         entryLabel := false
         exitLabelCreated := true
