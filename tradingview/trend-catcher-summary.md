@@ -1,25 +1,31 @@
 # TREND-CATCHER [15m]
 
-TREND-CATCHER [15m] is a Pine Script strategy focused on identifying trend reversals and managing trades with dynamic market conditions.
+TREND-CATCHER [15m] is a Pine Script strategy built for 15-minute chart analysis. It combines trend-state detection with stochastic oscillator confirmation to identify trend reversals and manage trades under defined backtest assumptions.
 
-## Strategy Overview
+## Strategy Profile
 
-The strategy combines trend-state detection with oscillator-based confirmation. It is designed for 15-minute chart analysis and uses rule-based entries, exits, and trade management.
+| Area | Description |
+|---|---|
+| Platform | TradingView |
+| Script type | Pine Script strategy |
+| Timeframe | 15-minute chart analysis |
+| Core logic | Trend-following bands, oscillator confirmation, dynamic thresholds |
+| Trade management | Rule-based entries, exits, take-profit logic, and stop-loss logic |
 
-## Indicators and Logic
+## Methodology
 
 - Radius Trend logic identifies market direction and adjusts dynamic bands as price action changes.
-- Stochastic oscillator inputs help identify overbought and oversold conditions for potential entries and exits.
-- Dynamic thresholds support trend-sensitive trade decisions rather than relying on fixed price levels alone.
-- Trade management includes take-profit and stop-loss logic under defined strategy assumptions.
+- Stochastic oscillator inputs help identify overbought and oversold conditions.
+- Dynamic thresholds support trend-sensitive trade decisions rather than fixed price levels alone.
+- Trade-management rules define entries, exits, profit targets, and stop-loss behavior.
 
 ## Backtest Summary
 
 Backtested across 50+ trades with Sharpe > 1.2, win rate > 85%, and ~35% annualized return under defined strategy assumptions.
 
-These results should be interpreted as research and strategy-development output, not as a guarantee of future performance.
+These results should be interpreted as strategy-development research, not as a guarantee of future performance.
 
-## Source
+## Resources
 
 - [Public TradingView script](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/)
 - [Active TREND-CATCHER Pine Script](../trend-catcher_15m-v5%20%5BActive%5D)
@@ -28,7 +34,7 @@ These results should be interpreted as research and strategy-development output,
 
 - Performance depends on the selected market, timeframe, execution assumptions, commissions, slippage, and TradingView backtest settings.
 - Backtest results can change when strategy settings, data history, or market conditions change.
-- The inactive strategy variants in this repository are not part of the current featured portfolio presentation.
+- Additional historical strategy variants may remain in the repository for context, but they are not part of the featured portfolio presentation.
 
 ## Disclaimer
 

@@ -1,18 +1,20 @@
 # Systematic Trading & Market Research Portfolio
 
-A portfolio of market research papers, options strategy analysis, Pine Script trading strategies, and quantitative backtesting work.
+A focused research portfolio covering options strategy analysis, systematic trading logic, Pine Script development, and quantitative backtesting.
 
-Resume project link:
+**Systematic Trading & Market Research Portfolio Link** | `github.com/harsh-choksi/systematic-trading-market-research`
 
-**Systematic Trading & Market Research Portfolio** | `github.com/harsh-choksi/systematic-trading-market-research`
+## Overview
 
-## Market Research Papers
+This repository is organized as a public archive for market research papers and strategy-development work. It is designed to serve as a polished GitHub landing page for resume reviewers, recruiters, and anyone evaluating the research process behind the projects.
 
-| Date | Paper | Topic | Methods |
-|---|---|---|---|
-| Jun 2026 | [Sentiment-Adjusted Covered-Call Assignment Simulation](research-papers/covered-call-assignment-simulation.pdf) | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, and assignment probability analysis |
+## Research Papers
 
-The first research paper will be added at `research-papers/covered-call-assignment-simulation.pdf` when the final PDF is ready.
+| Date | Paper | Focus | Methods | Status |
+|---|---|---|---|---|
+| Jun 2026 | Sentiment-Adjusted Covered-Call Assignment Simulation | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, assignment probability analysis | PDF pending final export |
+
+The first paper will be published at `research-papers/covered-call-assignment-simulation.pdf` once the final PDF export is available.
 
 ## TradingView Strategy
 
@@ -22,9 +24,11 @@ Pine Script strategy using trend-following logic, stochastic oscillator signals,
 
 Backtested across 50+ trades with Sharpe > 1.2, win rate > 85%, and ~35% annualized return under defined strategy assumptions.
 
-- Summary: [View strategy summary](tradingview/trend-catcher-summary.md)
-- TradingView: [View public script](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/)
-- Source: [Active TREND-CATCHER Pine Script](trend-catcher_15m-v5%20%5BActive%5D)
+| Resource | Link |
+|---|---|
+| Strategy summary | [View summary](tradingview/trend-catcher-summary.md) |
+| Public TradingView script | [Open on TradingView](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/) |
+| Pine Script source | [View active script](trend-catcher_15m-v5%20%5BActive%5D) |
 
 ## Repository Structure
 
@@ -35,12 +39,9 @@ systematic-trading-market-research/
     covered-call-assignment-simulation.pdf
   tradingview/
     trend-catcher-summary.md
-  images/
-    backtest-screenshot.png
-    research-preview.png
 ```
 
-The PDF and image files listed above are planned asset locations and will be added when the final materials are available.
+Additional historical strategy files may remain in the repository for context, while the public portfolio surface highlights the active TREND-CATCHER [15m] strategy.
 
 ## Disclaimer
 
