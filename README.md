@@ -28,20 +28,29 @@ Backtested across 50+ trades with Sharpe > 1.2, win rate > 85%, and ~35% annuali
 |---|---|
 | Strategy summary | [View summary](tradingview/trend-catcher-summary.md) |
 | Public TradingView script | [Open on TradingView](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/) |
-| Pine Script source | [View active script](trend-catcher_15m-v5%20%5BActive%5D) |
+| Pine Script source | [View active script](trend-catcher_15m-v5) |
 
 ## Repository Structure
 
 ```text
 systematic-trading-market-research/
   README.md
+  trend-catcher_15m-v5
   research-papers/
     covered-call-assignment-simulation.pdf
   tradingview/
     trend-catcher-summary.md
+  inactive/
+    only-long_dt-v4
+    only-long_dt-v5
+    only-long_options
+    trend-catcher_options (v1)
+  temporarily-inactive/
+    trend-catcher_calls (v2)
+    trend-catcher_options (v2)
 ```
 
-Additional historical strategy files may remain in the repository for context, while the public portfolio surface highlights the active TREND-CATCHER [15m] strategy.
+Historical strategy files are organized by status so the active TREND-CATCHER [15m] script remains easy to find at the repository root.
 
 ## Disclaimer
 

@@ -28,13 +28,13 @@ These results should be interpreted as strategy-development research, not as a g
 ## Resources
 
 - [Public TradingView script](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/)
-- [Active TREND-CATCHER Pine Script](../trend-catcher_15m-v5%20%5BActive%5D)
+- [Active TREND-CATCHER Pine Script](../trend-catcher_15m-v5)
 
 ## Assumptions and Limitations
 
 - Performance depends on the selected market, timeframe, execution assumptions, commissions, slippage, and TradingView backtest settings.
 - Backtest results can change when strategy settings, data history, or market conditions change.
-- Additional historical strategy variants may remain in the repository for context, but they are not part of the featured portfolio presentation.
+- Historical strategy variants are organized by status folders and are not part of the featured portfolio presentation.
 
 ## Disclaimer
 
