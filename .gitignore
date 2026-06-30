@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.jupyter_runtime/
+
+quant-research/spy-market-regime-clustering-lstm/data/raw/
+quant-research/spy-market-regime-clustering-lstm/models/

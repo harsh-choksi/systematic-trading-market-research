@@ -14,6 +14,7 @@ A focused research portfolio covering options strategy analysis, systematic trad
 | Research methods | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, assignment probability analysis |
 | Primary paper | [Sentiment-Adjusted Covered-Call Assignment Simulation](research-papers/2026-06-10-covered-call-assignment-simulation-summary.md) |
 | Public script | [TREND-CATCHER [15m] on TradingView](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/) |
+| Supplementary research | [SPY Market Regime Clustering and LSTM Forecasting](research-papers/2026-06-30-spy-market-regime-clustering-lstm-report.md) |
 
 ## Overview
 
@@ -31,6 +32,7 @@ The work here emphasizes:
 | Date | Paper | Focus | Methods | Status |
 |---|---|---|---|---|
 | Jun 10, 2026 | [Sentiment-Adjusted Covered-Call Assignment Simulation](research-papers/2026-06-10-covered-call-assignment-simulation-summary.md) | Covered calls and assignment risk | Black-Scholes modeling, put/call sentiment inputs, strike-selection rules, assignment probability analysis | Summary and DOCX available; PDF pending |
+| Jun 30, 2026 | [SPY Market Regime Clustering and LSTM Forecasting](research-papers/2026-06-30-spy-market-regime-clustering-lstm-report.md) | Market-regime context for options-strategy research | K-Means Clustering, chronological validation, PyTorch LSTM, baseline comparison | Report, notebook, code, and generated results available |
 
 The full paper is available as a Word document, with a Markdown summary provided for quick review. A PDF version can be added later once export is available.
 
@@ -45,12 +47,26 @@ The current featured strategy is TREND-CATCHER [15m], a TradingView Pine Script 
 | Public TradingView script | [Open on TradingView](https://www.tradingview.com/script/KzwlYoYT-TREND-CATCHER-15m/) |
 | Pine Script source | [View active script](trend-catcher_15m-v5.pine) |
 
+## Supplementary Quantitative Research
+
+### [SPY Market Regime Clustering and LSTM Forecasting](research-papers/2026-06-30-spy-market-regime-clustering-lstm-report.md)
+
+This secondary research project applies K-Means Clustering to historical SPY features and trains a PyTorch LSTM to forecast the next model-generated regime. It includes fixed chronological validation, persistence and logistic-regression baselines, an executable notebook, modular source code, generated figures, and reproducible metrics.
+
+| Resource | Link |
+|---|---|
+| Research report | [Read report](research-papers/2026-06-30-spy-market-regime-clustering-lstm-report.md) |
+| Project overview | [View project](quant-research/spy-market-regime-clustering-lstm/) |
+| Executable notebook | [Open notebook](quant-research/spy-market-regime-clustering-lstm/notebooks/01-spy-market-regime-analysis.ipynb) |
+| Generated metrics | [View metrics](quant-research/spy-market-regime-clustering-lstm/outputs/metrics.json) |
+
 ## Methodology
 
 This portfolio separates research artifacts from strategy implementation:
 
 - Research papers document model assumptions, inputs, outputs, limitations, and risk controls.
 - TradingView scripts show implementation work and strategy-development iterations.
+- Supplementary quantitative research demonstrates K-Means Clustering, deep learning, and leakage-aware time-series validation.
 - Archive folders preserve earlier variants without distracting from the featured strategy.
 - Disclosures and backtesting notes clarify that modeled or backtested results are conditional on assumptions.
 
@@ -61,6 +77,7 @@ Older strategy variants are retained for transparency and development history:
 - [Inactive scripts](inactive-scripts/) contain retired or superseded strategy files.
 - [Temporarily inactive scripts](temporarily-inactive-scripts/) contain paused variants that may still inform future development.
 - [Research papers](research-papers/) contains the market research archive.
+- [Quantitative research extensions](quant-research/) contains supporting machine-learning analysis and reproducible code.
 - [Disclosures](disclosures/) contains portfolio-wide risk and backtesting notes.
 
 ## Repository Structure
@@ -74,6 +91,17 @@ systematic-trading-market-research/
     README.md
     2026-06-10-covered-call-assignment-simulation.docx
     2026-06-10-covered-call-assignment-simulation-summary.md
+    2026-06-30-spy-market-regime-clustering-lstm-report.md
+  quant-research/
+    README.md
+    spy-market-regime-clustering-lstm/
+      README.md
+      run_pipeline.py
+      requirements.txt
+      notebooks/
+      src/
+      tests/
+      outputs/
   tradingview/
     README.md
     trend-catcher-summary.md
@@ -96,7 +124,7 @@ Historical strategy files are organized by status so the active TREND-CATCHER [1
 
 ## Review Path
 
-For a fast review, start with the portfolio snapshot, then read the research paper summary, then review the featured TradingView strategy and public script link. The archive folders are included for context, but the active strategy and research paper are the primary portfolio artifacts.
+For a fast review, start with the portfolio snapshot, then read the covered-call research summary, then review the featured TradingView strategy and public script link. The SPY regime project is supplementary evidence of K-Means and deep-learning experience; the existing options research and TREND-CATCHER strategy remain the primary portfolio artifacts.
 
 ## Disclaimer
 

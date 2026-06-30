@@ -1,0 +1,33 @@
+{
+  "feature_columns": [
+    "log_return_1d",
+    "return_5d",
+    "return_20d",
+    "volatility_10d",
+    "volatility_20d",
+    "volatility_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "sma20_sma50_ratio",
+    "rsi_14",
+    "atr_14_normalized",
+    "volume_zscore_20d",
+    "drawdown_252d"
+  ],
+  "first_observation": "2010-01-04",
+  "generated_at_utc": "2026-06-30T05:43:18.456742+00:00",
+  "last_observation": "2025-12-31",
+  "random_seed": 42,
+  "requested_end_inclusive": "2025-12-31",
+  "requested_start": "2010-01-01",
+  "rows": 4024,
+  "selected_k": 2,
+  "sequence_length": 20,
+  "source": "Yahoo Finance via yfinance (local cache)",
+  "split_rows": {
+    "test": 751,
+    "train": 2265,
+    "validation": 756
+  },
+  "ticker": "SPY"
+}
